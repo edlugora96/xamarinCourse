@@ -3,21 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTutorial.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login">
+             Title="Lands">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView
+            BindingContext="{Binding Login}">
             <StackLayout
-                Padding="10"
+                Padding="5"
                 >
-                <Label 
-                    FontAttributes="Bold"
-                    FontSize="Large" 
-                    HorizontalOptions="Center"
-                    Text="Lands"
-                    />
+                
                 <Image 
                     Source="onu" />
-                <Grid>
+                <Grid
+                    VerticalOptions="CenterAndExpand"
+                    Margin="10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -33,6 +31,7 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Keyboard="Email"
+                        Text="{Binding Email, Mode=TwoWay}"
                         Placeholder="Enter your E-mail..."/>
                     <Label
                         VerticalOptions="Center"
@@ -44,31 +43,49 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="True"
+                        Text="{Binding Password, Mode=TwoWay}"
                         Placeholder="Enter your Password..."/>
                 </Grid>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="10,0"
+                    Orientation="Horizontal">
                     <Label 
                         HorizontalOptions="StartAndExpand"
                         VerticalOptions="Center" 
                         Text="Remember me on this divice" />
-                    <Switch VerticalOptions="Center" />
+                    <Switch 
+                        IsToggled="{Binding isRemembered, Mode=TwoWay}" 
+                        VerticalOptions="Center" />
                 </StackLayout>
+                <Label 
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="blue"
+                    HorizontalOptions="Center"
+                    Text="Forgot your password?" />
                 <StackLayout 
-                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
                     Orientation="Horizontal">
                     <Button
                         Text="Login"
                         BackgroundColor="Navy"
+                        HeightRequest="46"
                         TextColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding LoginCommand}"
                     />
                     <Button
                         Text="Register"
+                        HeightRequest="46"
                         BackgroundColor="Purple"
                         TextColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding RegisterCommand}"
                     />
                 </StackLayout>
                 <StackLayout
+                    VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
                     Orientation="Horizontal">
                     <Image HeightRequest="80" Source="facebook_logo"/>
@@ -76,7 +93,9 @@
                     <Image HeightRequest="100"  Source="instagram_logo"/>
 
                 </StackLayout>
-                <ActivityIndicator/>
+                <ActivityIndicator 
+                    IsRunning="{Binding IsRunnig, Mode=TwoWay}" 
+                    VerticalOptions="CenterAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
