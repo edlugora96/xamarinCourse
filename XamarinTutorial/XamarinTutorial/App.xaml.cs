@@ -1,10 +1,9 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using XamarinTutorial.Views;
-
-namespace XamarinTutorial
+﻿namespace XamarinTutorial
 {
+    using System;
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+    using XamarinTutorial.Views;
     public partial class App : Application
     {
         public App()
