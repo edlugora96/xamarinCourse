@@ -4,11 +4,13 @@
     using Lands.ViewModels;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using XamarinTutorial.Views;
 
     public class LoginViewModel : BaseViewModel
     {
 
         #region Attributes
+        private string email;
         private string password;
         private bool isRunnig;
         private bool isEnabled;
@@ -17,8 +19,8 @@
         #region Properties
         public string Email
         {
-            get;
-            set;
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
         }
         public string Password
         {
@@ -91,12 +93,11 @@
             this.IsRunnig = false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.DisplayAlert(
-                "OK",
-                "You are in",
-                "Accept");
-            
+            this.email = string.Empty;
+            this.password = string.Empty;
 
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
 
         public ICommand RegisterCommand

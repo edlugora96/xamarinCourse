@@ -5,8 +5,14 @@
     using System.Text;
     public class MainViewModel
     {
-        #region Views
+        #region ViewModels
         public LoginViewModel Login
+        {
+            get;
+            set;
+        }
+
+        public LandsViewModel Lands
         {
             get;
             set;
@@ -16,8 +22,21 @@
         #region Constructor
         public MainViewModel()
         {
+            instance = this;
             this.Login = new LoginViewModel();
         }
+        #endregion
+
+        #region Singleton
+        private static MainViewModel instance;
+        public static MainViewModel GetInstance()
+        {
+            if(instance == null)
+            {
+                return new MainViewModel();
+            }
+            return instance;
+        }; 
         #endregion
     }
 }
