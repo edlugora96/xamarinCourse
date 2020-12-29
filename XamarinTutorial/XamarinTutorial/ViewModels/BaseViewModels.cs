@@ -1,4 +1,4 @@
-﻿namespace Lands.ViewModels
+﻿namespace XamarinTutorial.BaseViewModels
 {
     using System.Collections.Generic;
     using System.ComponentModel;

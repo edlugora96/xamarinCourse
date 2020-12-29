@@ -1,7 +1,7 @@
 ﻿namespace XamarinTutorial.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
-    using Lands.ViewModels;
+    using XamarinTutorial.BaseViewModels;
     using System.Windows.Input;
     using Xamarin.Forms;
     using XamarinTutorial.Views;

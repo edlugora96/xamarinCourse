@@ -1,8 +1,5 @@
 ﻿namespace XamarinTutorial.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     public class MainViewModel
     {
         #region ViewModels
@@ -36,7 +33,7 @@
                 return new MainViewModel();
             }
             return instance;
-        }; 
+        }
         #endregion
     }
 }
