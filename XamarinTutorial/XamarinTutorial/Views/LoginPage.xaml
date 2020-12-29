@@ -90,9 +90,13 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
                     Orientation="Horizontal">
-                    <Image HeightRequest="80" Source="facebook_logo"/>
-                    <Image HeightRequest="80"  Source="twitter_logo"/>
-                    <Image HeightRequest="100"  Source="instagram_logo"/>
+                    <Image HeightRequest="80" Source="facebook_logo">
+                        <!--<Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoginFacebookCommand}" />
+                        </Image.GestureRecognizers>-->
+                    </Image>
+                    <Image HeightRequest="80"  Source="twitter_logo"></Image>
+                    <Image HeightRequest="100"  Source="instagram_logo"></Image>
 
                 </StackLayout>
                 <ActivityIndicator 

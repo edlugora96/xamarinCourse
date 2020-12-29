@@ -27,9 +27,9 @@
                                 CornerRadius="10"
                                 HasShadow="true"
                                 Margin="5,2.5">
-                                <!--<Frame.GestureRecognizers>
+                                <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
-                                </Frame.GestureRecognizers>-->
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <!--<ColumnDefinition Width="Auto"/>-->
