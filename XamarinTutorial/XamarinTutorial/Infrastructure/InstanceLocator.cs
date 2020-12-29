@@ -1,21 +1,15 @@
-﻿namespace XamarinTutorial.Infrastructure
+﻿using XamarinTutorial.ViewModels;
+
+namespace XamarinTutorial.Infrastructure
 {
-    using ViewModels;
     public class InstanceLocator
     {
-        #region Properties
-        public MainViewModel Main
-        {
-            get;
-            set;
-        }
-        #endregion
-
-        #region Constructors
+     
+        public MainViewModel Main { get; set; }
+   
         public InstanceLocator()
         {
             this.Main = new MainViewModel();
         }
-        #endregion
     }
 }
