@@ -93,8 +93,8 @@
             this.IsRunnig = false;
             this.IsEnabled = true;
 
-            this.email = string.Empty;
-            this.password = string.Empty;
+            this.Email = string.Empty;
+            this.Password = string.Empty;
 
             MainViewModel.GetInstance().Lands = new LandsViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
