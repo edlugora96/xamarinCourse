@@ -1,7 +1,19 @@
-﻿namespace XamarinTutorial.ViewModels
+﻿using System.Collections.Generic;
+using XamarinTutorial.Models;
+
+namespace XamarinTutorial.ViewModels
 {
     public class MainViewModel
     {
+        #region Porperties
+        public List<Land> LandsList
+        {
+            get;
+            set;
+        }
+        
+        #endregion
+
         #region ViewModels
         public LoginViewModel Login
         {
