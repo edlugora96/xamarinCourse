@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTutorial.Views.LandPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Land">
+             IconImageSource="ic_info"
+             Title="Information">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Land}">
