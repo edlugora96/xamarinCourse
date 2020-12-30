@@ -59,6 +59,9 @@
             this.IsRunnig = true;
             this.IsEnabled = false;
 
+            this.Email = "edl";
+            this.Password = "123";
+
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(

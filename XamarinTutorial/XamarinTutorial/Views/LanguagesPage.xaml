@@ -6,10 +6,45 @@
              IconImageSource="ic_people"
              Title="Languages">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Languages!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BindingContext="{Binding Land}"
+            Padding="5">
+            <Label 
+                FontSize="Large"
+                FontAttributes="Bold"
+                Text="{Binding Land.Name}"
+                HorizontalOptions="Center"
+                TextColor="Black"/>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Languages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="{Binding Iso639_2}" 
+                                    TextColor="Black"/>
+                                <Label 
+                                    Grid.Column="1"
+                                    Text="{Binding Name}" 
+                                    TextColor="Black"/>
+                                <Label 
+                                    Grid.Column="2"
+                                    Text="{Binding NativeName}" 
+                                    TextColor="Black"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
