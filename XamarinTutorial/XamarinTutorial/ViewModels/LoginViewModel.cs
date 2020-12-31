@@ -5,9 +5,13 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using XamarinTutorial.Views;
+    using XamarinTutorial.Services;
 
     public class LoginViewModel : BaseViewModel
     {
+        #region Services
+        private ApiService apiService;
+        #endregion
 
         #region Attributes
         private string email;
@@ -81,6 +85,20 @@
                 return;
             }
 
+            var connection = await this.apiService.CheckConnection();
+
+            if(connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "OK");
+                this.Password = string.Empty;
+                this.IsRunnig = false;
+                this.IsEnabled = true;
+                return;
+            }
+
             if (this.Email != "edl" || this.Password != "123")
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -112,6 +130,7 @@
         #region Constructors
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
             this.IsRemembered = true;
             this.IsEnabled = true;
         }
