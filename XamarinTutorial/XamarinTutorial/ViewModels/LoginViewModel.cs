@@ -6,6 +6,7 @@
     using Xamarin.Forms;
     using XamarinTutorial.Views;
     using XamarinTutorial.Services;
+    using Helpers;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -63,23 +64,22 @@
             this.IsRunnig = true;
             this.IsEnabled = false;
 
-            this.Email = "edl";
-            this.Password = "123";
+            
 
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an Email",
-                    "OK");
+                    Languages.Error,
+                    Languages.EmailValidation,
+                    Languages.Accept);
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "You must enter an Password",
-                    "OK");
+                    Languages.Error,
+                    Languages.PasswordValidation,
+                    Languages.Accept);
                 this.IsRunnig = false;
                 this.IsEnabled = true;
                 return;
@@ -87,12 +87,12 @@
 
             var connection = await this.apiService.CheckConnection();
 
-            if(connection.IsSuccess)
+            if(!connection.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "OK");
+                    Languages.Accept);
                 this.Password = string.Empty;
                 this.IsRunnig = false;
                 this.IsEnabled = true;
@@ -102,9 +102,9 @@
             if (this.Email != "edl" || this.Password != "123")
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     "Login Error",
-                    "OK");
+                    Languages.Accept);
                 this.Password = string.Empty;
                 this.IsRunnig = false;
                 this.IsEnabled = true;
