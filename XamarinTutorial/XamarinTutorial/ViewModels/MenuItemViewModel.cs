@@ -34,6 +34,7 @@ namespace XamarinTutorial.ViewModels
             {
                 Settings.Token = string.Empty;
                 Settings.TokenType = string.Empty;
+                Settings.User = string.Empty;
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Token = string.Empty;
                 mainViewModel.TokenType = string.Empty;

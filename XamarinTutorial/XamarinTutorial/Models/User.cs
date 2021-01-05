@@ -10,7 +10,8 @@
         public int UserTypeId { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
-        
+        public string ImageFullPath { get; set; }
+
     }
 }
 

@@ -6,6 +6,9 @@
     using XamarinTutorial.Views;
     using XamarinTutorial.Helpers;
     using XamarinTutorial.ViewModels;
+    using XamarinTutorial.Models;
+    using Newtonsoft.Json;
+
     public partial class App : Application
     {
         #region Properties
@@ -26,6 +29,7 @@
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Token = Settings.Token;
                 mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.User = JsonConvert.DeserializeObject<User>(Settings.User);
                 mainViewModel.Lands = new LandsViewModel();
                 MainPage = new MasterPage();
             }
