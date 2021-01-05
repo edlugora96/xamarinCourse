@@ -13,6 +13,13 @@
             <Image 
                 Source="onu" 
                 HeightRequest="100"/>
+            <Label 
+                Text="{Binding User.FullName}" 
+                TextColor="White"
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                />
             <ListView
                 BackgroundColor="#0B0014"
                 ItemsSource="{Binding Menus}"

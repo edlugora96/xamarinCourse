@@ -8,6 +8,7 @@
     using XamarinTutorial.Services;
     using Helpers;
     using System;
+    using XamarinTutorial.Models;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -118,6 +119,7 @@
                 this.IsEnabled = true;
                 return;
             }
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
 
             // var token = await this.apiService.GetToken(
             //     apiSecurity,
@@ -142,8 +144,21 @@
             this.Email = string.Empty;
             this.Password = string.Empty;
 
+            //var user = await this.apiService.GetUserByEmail(apiSecurity, "", "", this.Email);
+
+            var user = new User
+            {
+                Email = "admin@edlugora.com",
+                FirstName = "Eduardo",
+                LastName = "Gonzalez",
+                Telephone = "1234546798",
+                UserTypeId = 1,
+                FullName = "Eduardo Gonzalez"
+            };
+
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Lands = new LandsViewModel();
+            mainViewModel.User = user;
             //mainViewModel.Token = token.AccessToken;
             //mainViewModel.TokenType = token.TokenType;
 

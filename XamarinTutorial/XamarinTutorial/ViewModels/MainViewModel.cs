@@ -21,6 +21,12 @@ namespace XamarinTutorial.ViewModels
             get;
             set;
         }
+
+        public User User
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region ViewModels
