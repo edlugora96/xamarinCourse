@@ -223,6 +223,24 @@ namespace XamarinTutorial.Resorces {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Land.
+        /// </summary>
+        public static string Land {
+            get {
+                return ResourceManager.GetString("Land", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lands.
+        /// </summary>
+        public static string Lands {
+            get {
+                return ResourceManager.GetString("Lands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Login.
         /// </summary>
         public static string Login {

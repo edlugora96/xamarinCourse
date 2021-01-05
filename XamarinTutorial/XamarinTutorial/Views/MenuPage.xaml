@@ -5,6 +5,7 @@
              x:Class="XamarinTutorial.Views.MenuPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate Menu}"
+             IconImageSource="ic_menu"
              BackgroundColor="#0B0014">
     <ContentPage.Content>
         <StackLayout

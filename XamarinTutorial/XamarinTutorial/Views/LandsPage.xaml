@@ -6,7 +6,8 @@
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Lands">
+             xmlns:i18n="clr-namespace:XamarinTutorial.Helpers"
+             Title="{i18n:Translate Lands}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ffimageloadingsvg:SvgImageSourceConverter 
@@ -18,7 +19,7 @@
             BindingContext="{Binding Lands}">
             <SearchBar 
                 HeightRequest="46"
-                Placeholder="Search..."
+                Placeholder="{i18n:Translate Search}"
                 Text="{Binding Filter, Mode=TwoWay}"
                 SearchCommand="{Binding SearchCommand}"
              />

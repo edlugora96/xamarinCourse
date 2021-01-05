@@ -192,8 +192,15 @@ namespace XamarinTutorial.Helpers
         {
             get { return Resource.Logout; }
         }
+
+        public static string Lands
+        {
+            get { return Resource.Lands; }
+        }
+
+        public static string Land
+        {
+            get { return Resource.Land; }
+        }
     }
 }
-
-
-

@@ -171,6 +171,12 @@
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="Land" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Lands" xml:space="preserve">
+    <value>Lands</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
