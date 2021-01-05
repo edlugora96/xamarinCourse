@@ -70,9 +70,10 @@ namespace XamarinTutorial.ViewModels
                 this.IsRefreshing = false;
                 return;
             }
+            var apiLands = Application.Current.Resources["APILands"].ToString();
 
             var response = await this.apiService.GetList<Land>(
-                "https://restcountries.eu",
+                apiLands,
                 "/rest",
                 "/v2/all");
 

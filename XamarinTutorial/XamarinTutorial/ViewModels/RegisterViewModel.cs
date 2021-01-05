@@ -205,7 +205,7 @@ namespace XamarinTutorial.ViewModels
                 Password = this.Password,
             };
 
-            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            /*var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
             var response = await this.apiService.Post(
                 apiSecurity,
                 "/api",
@@ -221,7 +221,7 @@ namespace XamarinTutorial.ViewModels
                     response.Message,
                     Languages.Accept);
                 return;
-            }
+            }*/
 
             this.IsRunning = false;
             this.IsEnabled = true;
