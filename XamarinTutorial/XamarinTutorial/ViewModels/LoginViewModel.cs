@@ -158,9 +158,10 @@
             Application.Current.MainPage = new MasterPage();
         }
 
-        private void Register()
+        private async void Register()
         {
-            throw new NotImplementedException();
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         } 
         #endregion
     }
