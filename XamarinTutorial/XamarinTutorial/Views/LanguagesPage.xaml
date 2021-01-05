@@ -4,7 +4,8 @@
              x:Class="XamarinTutorial.Views.LanguagesPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              IconImageSource="ic_people"
-             Title="Languages">
+             xmlns:i18n="clr-namespace:XamarinTutorial.Helpers"
+             Title="{i18n:Translate MyLanguages}">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Land}"

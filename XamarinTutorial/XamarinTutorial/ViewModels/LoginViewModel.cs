@@ -7,6 +7,7 @@
     using XamarinTutorial.Views;
     using XamarinTutorial.Services;
     using Helpers;
+    using System;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -56,15 +57,34 @@
             {
                 return new RelayCommand(Login);
             }
+        }        
+        public ICommand RegisterCommand
+        {
+            get
+            {
+                return new RelayCommand(Register);
+            }
         }
+        #endregion
 
+        #region Constructors
+        public LoginViewModel()
+        {
+            this.apiService = new ApiService();
+            this.IsRemembered = true;
+            this.IsEnabled = true;
+            this.Email = "edl";
+            this.Password = "123";
+        }
+        #endregion
 
+        #region Methods
         private async void Login()
         {
             this.IsRunnig = true;
             this.IsEnabled = false;
 
-            
+
 
             if (string.IsNullOrEmpty(this.Email))
             {
@@ -87,7 +107,7 @@
 
             var connection = await this.apiService.CheckConnection();
 
-            if(!connection.IsSuccess)
+            if (!connection.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.Error,
@@ -99,10 +119,10 @@
                 return;
             }
 
-           // var token = await this.apiService.GetToken(
-           //     apiSecurity,
-           //     this.Email,
-           //     this.Password);
+            // var token = await this.apiService.GetToken(
+            //     apiSecurity,
+            //     this.Email,
+            //     this.Password);
 
             if (this.Email != "edl" || this.Password != "123")
             {
@@ -133,26 +153,15 @@
             {
                 Settings.Token = "token.AccessToken";
                 Settings.TokenType = "token.TokenType";
-            }            
+            }
 
             Application.Current.MainPage = new MasterPage();
         }
 
-        public ICommand RegisterCommand
+        private void Register()
         {
-            get;
-        }
-        #endregion
-
-        #region Constructors
-        public LoginViewModel()
-        {
-            this.apiService = new ApiService();
-            this.IsRemembered = true;
-            this.IsEnabled = true;
-            this.Email = "edl";
-            this.Password = "123";
-        }
+            throw new NotImplementedException();
+        } 
         #endregion
     }
 }
