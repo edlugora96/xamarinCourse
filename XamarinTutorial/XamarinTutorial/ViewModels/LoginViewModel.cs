@@ -155,7 +155,6 @@
                 Telephone = "1234546798",
                 UserTypeId = 1,
                 ImageFullPath = "https://pyxis.nymag.com/v1/imgs/a3e/15c/8997db401a5517b2c0e1e84b9f120fcbed-02-andy-samberg.rsquare.w1200.jpg", 
-                FullName = "Eduardo Gonzalez"
             };
 
             var mainViewModel = MainViewModel.GetInstance();
