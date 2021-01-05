@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Platform;
+using Plugin.Permissions;
+
 
 namespace XamarinTutorial.Droid
 {
@@ -30,6 +32,10 @@ namespace XamarinTutorial.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            PermissionsImplementation.Current.OnRequestPermissionsResult( requestCode, permissions, grantResults );
         }
+
+
     }
 }
