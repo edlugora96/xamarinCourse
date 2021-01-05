@@ -4,6 +4,8 @@
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     using XamarinTutorial.Views;
+    using XamarinTutorial.Helpers;
+    using XamarinTutorial.ViewModels;
     public partial class App : Application
     {
         #region Properties
@@ -15,7 +17,18 @@
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            if(string.IsNullOrEmpty(Settings.Token))
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.Lands = new LandsViewModel();
+                MainPage = new MasterPage();
+            }
         }
         #endregion
 

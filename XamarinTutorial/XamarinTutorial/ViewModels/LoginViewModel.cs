@@ -99,6 +99,11 @@
                 return;
             }
 
+           // var token = await this.apiService.GetToken(
+           //     apiSecurity,
+           //     this.Email,
+           //     this.Password);
+
             if (this.Email != "edl" || this.Password != "123")
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -117,7 +122,18 @@
             this.Email = string.Empty;
             this.Password = string.Empty;
 
-            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Lands = new LandsViewModel();
+            //mainViewModel.Token = token.AccessToken;
+            //mainViewModel.TokenType = token.TokenType;
+
+            mainViewModel.Token = "token.AccessToken";
+            mainViewModel.TokenType = "token.TokenType";
+            if (IsRemembered)
+            {
+                Settings.Token = "token.AccessToken";
+                Settings.TokenType = "token.TokenType";
+            }            
 
             Application.Current.MainPage = new MasterPage();
         }

@@ -57,7 +57,7 @@
                         VerticalOptions="Center" 
                         Text="{i18n:Translate Rememberme}" /> 
                     <Switch 
-                        IsToggled="{Binding isRemembered, Mode=TwoWay}" 
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}" 
                         VerticalOptions="Center" />
                 </StackLayout>
                 <Label 

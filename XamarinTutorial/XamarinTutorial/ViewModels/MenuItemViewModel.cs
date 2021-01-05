@@ -3,6 +3,7 @@ using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinTutorial.Views;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.ViewModels
 {
@@ -31,6 +32,11 @@ namespace XamarinTutorial.ViewModels
         {
             if(this.PageName == "LoginPage")
             {
+                Settings.Token = string.Empty;
+                Settings.TokenType = string.Empty;
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Token = string.Empty;
+                mainViewModel.TokenType = string.Empty;
                 Application.Current.MainPage = new LoginPage();
             }
         } 
