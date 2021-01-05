@@ -6,13 +6,20 @@
     using XamarinTutorial.Views;
     public partial class App : Application
     {
+        #region Properties
+        public static NavigationPage Navigator { get; internal set; }
+        #endregion
+
+        #region Constructor
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new LoginPage();
         }
+        #endregion
 
+        #region Methods
         protected override void OnStart()
         {
         }
@@ -23,6 +30,7 @@
 
         protected override void OnResume()
         {
-        }
+        } 
+        #endregion
     }
 }

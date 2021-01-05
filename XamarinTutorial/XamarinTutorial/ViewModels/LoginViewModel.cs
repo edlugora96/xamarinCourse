@@ -118,7 +118,8 @@
             this.Password = string.Empty;
 
             MainViewModel.GetInstance().Lands = new LandsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+
+            Application.Current.MainPage = new MasterPage();
         }
 
         public ICommand RegisterCommand
@@ -133,6 +134,8 @@
             this.apiService = new ApiService();
             this.IsRemembered = true;
             this.IsEnabled = true;
+            this.Email = "edl";
+            this.Password = "123";
         }
         #endregion
     }
