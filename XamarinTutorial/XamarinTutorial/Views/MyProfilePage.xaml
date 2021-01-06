@@ -9,95 +9,94 @@
     <ContentPage.Content>
         <ScrollView  
             BindingContext="{Binding MyProfile}">
-            <StackLayout
-                Padding="5">
-                <controls:CircleImage 
+            <AbsoluteLayout>
+                <StackLayout
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    Padding="5">
+                    <controls:CircleImage 
                     Aspect="AspectFill"
                     HeightRequest="250"
                     Source="{Binding ImageSource}">
-                    <controls:CircleImage.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}" />
-                    </controls:CircleImage.GestureRecognizers>
-                </controls:CircleImage>
-                <Label 
+                        <controls:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageCommand}" />
+                        </controls:CircleImage.GestureRecognizers>
+                    </controls:CircleImage>
+                    <Label 
                     HorizontalOptions="Center" 
                     FontSize="Small" 
                     Text="{i18n:Translate ChangeImage}" 
                     TextColor="Black">
-                </Label>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <Label 
+                    </Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Label 
                         Grid.Column="0" 
                         Grid.Row="0" 
                         Text="{i18n:Translate FirstNameLabel}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
-                    </Label>
-                    <Entry 
+                        </Label>
+                        <Entry 
                         Grid.Column="1" 
                         Grid.Row="0" 
                         Placeholder="{i18n:Translate FirstNamePlaceHolder}" 
                         TextColor="Black" 
                         Text="{Binding User.FirstName, Mode=TwoWay}">
-                    </Entry>
-                    <Label 
+                        </Entry>
+                        <Label 
                         Grid.Column="0" 
                         Grid.Row="1" 
                         Text="{i18n:Translate LastNameLabel}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
-                    </Label>
-                    <Entry 
+                        </Label>
+                        <Entry 
                         Grid.Column="1" 
                         Grid.Row="1" 
                         Placeholder="{i18n:Translate LastNamePlaceHolder}" 
                         TextColor="Black" 
                         Text="{Binding User.LastName, Mode=TwoWay}">
-                    </Entry>
-                    <Label 
+                        </Entry>
+                        <Label 
                         Grid.Column="0" 
                         Grid.Row="2" 
                         Text="{i18n:Translate Email}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
-                    </Label>
-                    <Entry 
+                        </Label>
+                        <Entry 
                         Keyboard="Email" 
                         Grid.Column="1" 
                         Grid.Row="2" 
                         Placeholder="{i18n:Translate EmailPlaceHolder}" 
                         TextColor="Black" 
                         Text="{Binding User.Email, Mode=TwoWay}">
-                    </Entry>
-                    <Label 
+                        </Entry>
+                        <Label 
                         Grid.Column="0" 
                         Grid.Row="3" 
                         Text="{i18n:Translate PhoneLabel}" 
                         TextColor="Black" 
                         VerticalOptions="Center">
-                    </Label>
-                    <Entry 
+                        </Label>
+                        <Entry 
                         Grid.Column="1" 
                         Grid.Row="3" 
                         Keyboard="Telephone" 
                         Placeholder="{i18n:Translate PhonePlaceHolder}" 
                         TextColor="Black" 
                         Text="{Binding User.Telephone, Mode=TwoWay}">
-                    </Entry>
-                </Grid>
-                <ActivityIndicator
-                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
-                    VerticalOptions="CenterAndExpand">
-                </ActivityIndicator>
-                <StackLayout
+                        </Entry>
+                    </Grid>
+                    <StackLayout
                     Margin="5,0"
                     Orientation="Horizontal"
                     VerticalOptions="End">
-                    <Button
+                        <Button
                         BackgroundColor="Navy"
                         Command="{Binding SaveCommand}"
                         HeightRequest="46"
@@ -105,8 +104,8 @@
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="{i18n:Translate Save}"
                         TextColor="White">
-                    </Button>
-                    <Button
+                        </Button>
+                        <Button
                         BackgroundColor="Purple"
                         Command="{Binding ChangePasswordCommand}"
                         HeightRequest="46"
@@ -114,9 +113,16 @@
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="{i18n:Translate ChangePassword}"
                         TextColor="White">
-                    </Button>
+                        </Button>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
+                <ActivityIndicator
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+            </AbsoluteLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

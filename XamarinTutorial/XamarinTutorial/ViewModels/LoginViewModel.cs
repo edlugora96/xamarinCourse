@@ -137,13 +137,7 @@
                 this.IsRunnig = false;
                 this.IsEnabled = true;
                 return;
-            }
-
-            this.IsRunnig = false;
-            this.IsEnabled = true;
-
-            this.Email = string.Empty;
-            this.Password = string.Empty;
+            }            
 
             //var user = await this.apiService.GetUserByEmail(apiSecurity, "", "", this.Email);
 
@@ -161,8 +155,10 @@
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Lands = new LandsViewModel();
             mainViewModel.User = user;
-            mainViewModel.Token.AccessToken = "token.AccessToken";
-            
+            mainViewModel.Token = new TokenResponse{
+                AccessToken = "token.AccessToken" 
+            };
+
             Settings.IsRemembered = "false";
             if (IsRemembered)
             {
@@ -170,6 +166,12 @@
                 Settings.Token = JsonConvert.SerializeObject(mainViewModel.Token);
                 Settings.User = JsonConvert.SerializeObject(user);
             }
+
+            this.IsRunnig = false;
+            this.IsEnabled = true;
+
+            this.Email = string.Empty;
+            this.Password = string.Empty;
 
             Application.Current.MainPage = new MasterPage();
         }
