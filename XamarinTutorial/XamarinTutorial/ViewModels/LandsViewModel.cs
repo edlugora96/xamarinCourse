@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using XamarinTutorial.BaseViewModels;
 using XamarinTutorial.Models;
 using XamarinTutorial.Services;
+using XamarinTutorial.Views;
 
 namespace XamarinTutorial.ViewModels
 {
@@ -66,8 +67,8 @@ namespace XamarinTutorial.ViewModels
                     "Error",
                     connection.Message,
                     "OK");
-                await Application.Current.MainPage.Navigation.PopAsync();
                 this.IsRefreshing = false;
+                Application.Current.MainPage = new NavigationPage(new LoginPage());                
                 return;
             }
             var apiLands = Application.Current.Resources["APILands"].ToString();
