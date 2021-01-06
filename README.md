@@ -15,3 +15,9 @@ Is a project to know how to create an app using Xamarin.Forms, and to create a B
 - Create a custom Splash and Icon
 
 # Some screen shots
+
+![Splash](https://res.cloudinary.com/dacdvngec/image/upload/v1609963733/XamarinTutorial/splash_yswljk.png)
+Splash
+
+![LoginView](https://res.cloudinary.com/dacdvngec/image/upload/v1609963657/XamarinTutorial/login_ll1f5p.png)
+LoginView
