@@ -18,7 +18,7 @@ Is a project to know how to create an app using Xamarin.Forms, and to create a B
 
 #### Splash
 
-![Splash](https://res.cloudinary.com/dacdvngec/image/upload/v1609963733/XamarinTutorial/splash_yswljk.png)
+![Splash](https://res.cloudinary.com/dacdvngec/image/upload/v1609966526/XamarinTutorial/splash_kpxk1o.png)
 
 #### Icon
 
@@ -26,24 +26,28 @@ Is a project to know how to create an app using Xamarin.Forms, and to create a B
 
 #### LoginView
 
-![LoginView](https://res.cloudinary.com/dacdvngec/image/upload/v1609963657/XamarinTutorial/login_ll1f5p.png)
+![LoginView](https://res.cloudinary.com/dacdvngec/image/upload/v1609966524/XamarinTutorial/login_g1hvsc.png)
 
 #### LoginView Spanish and Loading
 
-![LoginViewEs](https://res.cloudinary.com/dacdvngec/image/upload/v1609963637/XamarinTutorial/loginEs_e8ioge.png)
+![LoginViewEs](https://res.cloudinary.com/dacdvngec/image/upload/v1609966530/XamarinTutorial/loginEs_e4eodt.png)
 
 #### LandsView
 
-![LandsView](https://res.cloudinary.com/dacdvngec/image/upload/v1609963672/XamarinTutorial/lands_kun37v.png)
+![LandsView](https://res.cloudinary.com/dacdvngec/image/upload/v1609966510/XamarinTutorial/lands_vuln02.png)
 
 #### LandsView Loading
 
-![LandsViewLoading](https://res.cloudinary.com/dacdvngec/image/upload/v1609963625/XamarinTutorial/landsLoading_ocd3az.png)
+![LandsViewLoading](https://res.cloudinary.com/dacdvngec/image/upload/v1609966500/XamarinTutorial/landsLoading_rnf64d.png)
 
 #### LandView
 
-![LandView](https://res.cloudinary.com/dacdvngec/image/upload/v1609963649/XamarinTutorial/land_za0dnl.png)
+![LandView](https://res.cloudinary.com/dacdvngec/image/upload/v1609966522/XamarinTutorial/land_nbitxz.png)
 
-#### MenuView
+#### MenuView Spanish
 
-![MenuView](https://res.cloudinary.com/dacdvngec/image/upload/v1609963708/XamarinTutorial/menuEs_ri4l1e.png)
+![MenuView](https://res.cloudinary.com/dacdvngec/image/upload/v1609966510/XamarinTutorial/menuEs_cyjdfe.png)
+
+#### RegisterView Spanish
+
+![RegisterView](https://res.cloudinary.com/dacdvngec/image/upload/v1609966526/XamarinTutorial/registerEs_u0iic6.png)
