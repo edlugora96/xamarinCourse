@@ -14,4 +14,4 @@ Is a project to know how to create an app using Xamarin.Forms, and to create a B
 - Create a Translate system (Sources, Interface...)
 - Create a custom Splash and Icon
 
-# Some screen shot
+# Some screen shots
