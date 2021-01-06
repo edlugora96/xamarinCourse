@@ -11,6 +11,7 @@ namespace XamarinTutorial.Views
             InitializeComponent();
 
             App.Navigator = Navigator;
+            App.Master = this;
         }
     }
 }

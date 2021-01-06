@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using XamarinTutorial.Models;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.Services
 {
@@ -19,7 +20,7 @@ namespace XamarinTutorial.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please turn on your internet settings.",
+                    Message = Languages.ConnectionError1,
                 };
             }
 
@@ -30,7 +31,7 @@ namespace XamarinTutorial.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Check you internet connection.",
+                    Message = Languages.ConnectionError2,
                 };
             }
 

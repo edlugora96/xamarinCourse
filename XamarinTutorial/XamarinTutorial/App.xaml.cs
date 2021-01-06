@@ -13,25 +13,44 @@
     {
         #region Properties
         public static NavigationPage Navigator { get; internal set; }
+        public static MasterPage Master { get; internal set; }
         #endregion
 
         #region Constructor
         public App()
         {
             InitializeComponent();
-
-            if(string.IsNullOrEmpty(Settings.Token))
+            var mainViewModel = MainViewModel.GetInstance();
+            if (Settings.IsRemembered == "true")
             {
-                MainPage = new NavigationPage(new LoginPage());
+                mainViewModel.Token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+                var token = mainViewModel.Token;
+                if (token != null && token.Expires > DateTime.Now)
+                {
+                    mainViewModel.User = JsonConvert.DeserializeObject<User>(Settings.User);
+                    mainViewModel.Lands = new LandsViewModel();
+                    MainPage = new MasterPage();
+                }
+                else
+                {
+                    Settings.IsRemembered = "false";
+                    Settings.Token = string.Empty;
+                    Settings.User = string.Empty;
+                    mainViewModel.Token = null;
+                    mainViewModel.User = null;
+                    MainPage = new NavigationPage(new LoginPage());
+                }
+                
+                
             }
             else
             {
-                var mainViewModel = MainViewModel.GetInstance();
-                mainViewModel.Token = Settings.Token;
-                mainViewModel.TokenType = Settings.TokenType;
-                mainViewModel.User = JsonConvert.DeserializeObject<User>(Settings.User);
-                mainViewModel.Lands = new LandsViewModel();
-                MainPage = new MasterPage();
+                Settings.IsRemembered = "false";
+                Settings.Token = string.Empty;
+                Settings.User = string.Empty;
+                mainViewModel.Token = null;
+                mainViewModel.User = null;
+                MainPage = new NavigationPage(new LoginPage());
             }
         }
         #endregion

@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using XamarinTutorial.Models;
 using XamarinTutorial.Helpers;
+using XamarinTutorial.BaseViewModels;
 
 namespace XamarinTutorial.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
+        #region Attributes
+        private User user;
+        #endregion
+
         #region Porperties
         public List<Land> LandsList
         {
             get;
             set;
         }
-        public string Token { get; set; }
-        public string TokenType { get; set; }
+        public TokenResponse Token { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus
         {
             get;
@@ -24,13 +28,18 @@ namespace XamarinTutorial.ViewModels
 
         public User User
         {
-            get;
-            set;
+            get { return this.user; }
+            set { SetValue(ref this.user, value); }
         }
         #endregion
 
         #region ViewModels
         public LoginViewModel Login
+        {
+            get;
+            set;
+        }
+        public ChangePasswordViewModel ChangePassword
         {
             get;
             set;
@@ -52,6 +61,12 @@ namespace XamarinTutorial.ViewModels
             get;
             set;
         }
+        public MyProfileViewModel MyProfile
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Constructor

@@ -16,7 +16,6 @@
         const string isRemembered = "IsRemembered";
         const string token = "Token";
         const string user = "User";
-        const string tokenType = "TokenType";
         static readonly string stringDefault = string.Empty;
 
         public static string IsRemembered
@@ -40,18 +39,6 @@
             set
             {
                 AppSettings.AddOrUpdateValue(token, value);
-            }
-        }
-
-        public static string TokenType
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(tokenType, stringDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(tokenType, value);
             }
         }
 

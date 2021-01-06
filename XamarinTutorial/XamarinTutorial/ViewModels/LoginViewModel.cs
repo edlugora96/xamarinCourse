@@ -131,7 +131,7 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.Error,
-                    "Login Error",
+                    Languages.LoginError,
                     Languages.Accept);
                 this.Password = string.Empty;
                 this.IsRunnig = false;
@@ -157,17 +157,18 @@
                 ImageFullPath = "https://pyxis.nymag.com/v1/imgs/a3e/15c/8997db401a5517b2c0e1e84b9f120fcbed-02-andy-samberg.rsquare.w1200.jpg", 
             };
 
+            user.Password = this.Password;
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Lands = new LandsViewModel();
             mainViewModel.User = user;
-            mainViewModel.Token = "token.AccessToken";
-            mainViewModel.TokenType = "token.TokenType";
-
+            mainViewModel.Token.AccessToken = "token.AccessToken";
+            
+            Settings.IsRemembered = "false";
             if (IsRemembered)
             {
+                Settings.IsRemembered = "true";
+                Settings.Token = JsonConvert.SerializeObject(mainViewModel.Token);
                 Settings.User = JsonConvert.SerializeObject(user);
-                Settings.Token = "token.AccessToken";
-                Settings.TokenType = "token.TokenType";
             }
 
             Application.Current.MainPage = new MasterPage();
