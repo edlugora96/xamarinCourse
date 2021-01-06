@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinTutorial.BaseViewModels;
 using XamarinTutorial.Helpers;
+using XamarinTutorial.Models;
 using XamarinTutorial.Services;
 
 namespace XamarinTutorial.ViewModels
@@ -153,14 +154,14 @@ namespace XamarinTutorial.ViewModels
                 return;
             }
 
-            /*var request = new ChangePasswordRequest
+            var request = new ChangePasswordRequest
             {
                 CurrentPassword = this.CurrentPassword,
                 Email = MainViewModel.GetInstance().User.Email,
                 NewPassword = this.NewPassword,
             };
 
-            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            /*var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
             var response = await this.apiService.ChangePassword(
                 apiSecurity,
                 "/api",
