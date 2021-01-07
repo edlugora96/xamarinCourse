@@ -8,7 +8,7 @@
             <infra:InstanceLocator x:Key="Locator" />
 
             <x:String x:Key="APILands">https://restcountries.eu</x:String>
-            <x:String x:Key="APISecurity">https://no.landsapi1.azurewebsites.net</x:String>
+            <x:String x:Key="APISecurity">https://www.appcurso.corpotecguayana.com/lands/webservice/webservice.php</x:String>
         </ResourceDictionary>
 
     </Application.Resources>

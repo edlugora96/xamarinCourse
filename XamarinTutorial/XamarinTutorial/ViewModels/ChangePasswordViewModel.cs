@@ -161,11 +161,9 @@ namespace XamarinTutorial.ViewModels
                 NewPassword = this.NewPassword,
             };
 
-            /*var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
             var response = await this.apiService.ChangePassword(
                 apiSecurity,
-                "/api",
-                "/Users/ChangePassword",
                 MainViewModel.GetInstance().Token.TokenType,
                 MainViewModel.GetInstance().Token.AccessToken,
                 request);
@@ -179,7 +177,7 @@ namespace XamarinTutorial.ViewModels
                     Languages.ErrorChangingPassword,
                     Languages.Accept);
                 return;
-            }*/
+            }
 
             MainViewModel.GetInstance().User.Password = this.NewPassword;
             Settings.User = JsonConvert.SerializeObject(MainViewModel.GetInstance().User);

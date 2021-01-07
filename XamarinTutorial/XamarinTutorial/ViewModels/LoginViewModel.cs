@@ -75,8 +75,6 @@
             this.apiService = new ApiService();
             this.IsRemembered = true;
             this.IsEnabled = true;
-            this.Email = "edl";
-            this.Password = "123";
         }
         #endregion
 
@@ -122,12 +120,24 @@
             }
             var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
 
-            // var token = await this.apiService.GetToken(
-            //     apiSecurity,
-            //     this.Email,
-            //     this.Password);
+            var token = await this.apiService.GetToken(
+                apiSecurity,
+                this.Email,
+                this.Password);
 
-            if (this.Email != "edl" || this.Password != "123")
+            if (token == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.Error,
+                    Languages.SomethingWrong,
+                    Languages.Accept);
+                this.Password = string.Empty;
+                this.IsRunnig = false;
+                this.IsEnabled = true;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(token.AccessToken))
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.Error,
@@ -137,27 +147,15 @@
                 this.IsRunnig = false;
                 this.IsEnabled = true;
                 return;
-            }            
+            }
 
-            //var user = await this.apiService.GetUserByEmail(apiSecurity, "", "", this.Email);
-
-            var user = new User
-            {
-                Email = "admin@edlugora.com",
-                FirstName = "Eduardo",
-                LastName = "Gonzalez",
-                Telephone = "1234546798",
-                UserTypeId = 1,
-                ImageFullPath = "https://pyxis.nymag.com/v1/imgs/a3e/15c/8997db401a5517b2c0e1e84b9f120fcbed-02-andy-samberg.rsquare.w1200.jpg", 
-            };
+            var user = await this.apiService.GetUserByEmail(apiSecurity, this.Email);
 
             user.Password = this.Password;
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Lands = new LandsViewModel();
             mainViewModel.User = user;
-            mainViewModel.Token = new TokenResponse{
-                AccessToken = "token.AccessToken" 
-            };
+            mainViewModel.Token = token;
 
             Settings.IsRemembered = "false";
             if (IsRemembered)

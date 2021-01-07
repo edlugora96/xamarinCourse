@@ -51,7 +51,7 @@ namespace XamarinTutorial.Services
             {
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.PostAsync("Token",
+                var response = await client.PostAsync("?function=token",
                     new StringContent(string.Format(
                     "grant_type=password&username={0}&password={1}",
                     username, password),
@@ -66,21 +66,21 @@ namespace XamarinTutorial.Services
                 return null;
             }
         }
-        public async Task<Response> ChangePassword(
+
+        public async Task<Response> PostRegister(
             string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken, ChangePasswordRequest changePasswordRequest)
+            User user)
         {
             try
             {
-                var request = JsonConvert.SerializeObject(changePasswordRequest);
-                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                var request = JsonConvert.SerializeObject(user);
+                var content = new StringContent(
+                    request,
+                    Encoding.UTF8,
+                    "application/json");
                 var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var url = string.Format("{0}{1}", servicePrefix, controller);
+                var url = string.Format("{0}{1}", "?function=", "Users");
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -88,12 +88,18 @@ namespace XamarinTutorial.Services
                     return new Response
                     {
                         IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
                     };
                 }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var newRecord = JsonConvert.DeserializeObject<Response>(result);
 
                 return new Response
                 {
                     IsSuccess = true,
+                    Message = "Record added OK",
+                    Result = newRecord,
                 };
             }
             catch (Exception ex)
@@ -383,8 +389,6 @@ namespace XamarinTutorial.Services
 
         public async Task<User> GetUserByEmail(
             string urlBase,
-            string servicePrefix,
-            string controller,
             string email)
         {
             try
@@ -401,16 +405,13 @@ namespace XamarinTutorial.Services
                     "application/json");
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(urlBase);
-                var url = string.Format("{0}{1}", servicePrefix, controller);
-                var response = await client.PostAsync(url, content);
+                var response = await client.PostAsync("?function=UserByEmail",
+                    new StringContent(string.Format("&email=" + email),
+                        Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<User>(resultJSON);
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    return null;
-                }
-
-                var result = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<User>(result);
+                return result;
 
             }
             catch
@@ -419,6 +420,92 @@ namespace XamarinTutorial.Services
             }
         }
 
+        public async Task<Response> PutUser(
+            string urlBase,
+            User user,
+            string tokenType,
+            string token)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(user);
+                var content = new StringContent(
+                    request,
+                    Encoding.UTF8,
+                    "application/json");
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var url = string.Format("{0}{1}", "?function=", "UserMod", "&tokenType=" + tokenType, "&token=" + token);
+                var response = await client.PostAsync(url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
+                    };
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var newRecord = JsonConvert.DeserializeObject<Response>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Record added OK",
+                    Result = newRecord,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
+        public async Task<Response> ChangePassword(
+            string urlBase,
+            string tokenType,
+            string accessToken,
+            ChangePasswordRequest changePasswordRequest)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("?function=ChangePassword",
+                     new StringContent(string.Format(
+                         "&email=" + changePasswordRequest.Email + "&password=" + changePasswordRequest.CurrentPassword + "&newPassword=" + changePasswordRequest.NewPassword/* + "&token=" + accessToken + "&tokenType=" + tokenType*/),
+                         Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<User>(resultJSON);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false
+                    };
+                }
+
+                return new Response
+                {
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
         public async Task<Response> Put<T>(
             string urlBase,
             string servicePrefix,

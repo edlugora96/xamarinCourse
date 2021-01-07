@@ -206,24 +206,20 @@ namespace XamarinTutorial.ViewModels
                     Languages.Accept);
                 return;
             }
-
-            byte[] imageArray = null;
+            this.User.ImageArray = null;
             if (this.file != null)
             {
-                imageArray = FilesHelper.ReadFully(this.file.GetStream());
+                this.User.ImageArray = FilesHelper.ReadFully(this.file.GetStream());
             }
 
-            //var userDomain = Converter.ToUserDomain(this.User, imageArray);
-            //var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
-            /*var response = await this.apiService.Put(
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            var response = await this.apiService.PutUser(
                 apiSecurity,
-                "/api",
-                "/Users",
+                this.User,
                 MainViewModel.GetInstance().Token.TokenType,
-                MainViewModel.GetInstance().Token.AccessToken,
-                userDomain);*/
+                MainViewModel.GetInstance().Token.AccessToken);
 
-            /*if (!response.IsSuccess)
+            if (!response.IsSuccess)
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
@@ -232,19 +228,14 @@ namespace XamarinTutorial.ViewModels
                     response.Message,
                     Languages.Accept);
                 return;
-            }*/
+            }
 
-            /*var userApi = await this.apiService.GetUserByEmail(
+            var userApi = await this.apiService.GetUserByEmail(
                 apiSecurity,
-                "/api",
-                "/Users/GetUserByEmail",
-                MainViewModel.GetInstance().Token.TokenType,
-                MainViewModel.GetInstance().Token.AccessToken,
                 this.User.Email);
-            var userLocal = Converter.ToUserLocal(userApi);*/
 
-            MainViewModel.GetInstance().User = this.User;
-            Settings.User = JsonConvert.SerializeObject(this.User);
+            MainViewModel.GetInstance().User = userApi;
+            Settings.User = JsonConvert.SerializeObject(userApi);
 
             this.IsRunning = false;
             this.IsEnabled = true;
