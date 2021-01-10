@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System;
+using XamarinTutorial.Views;
 
 namespace XamarinTutorial.Helpers
 {
@@ -49,9 +50,9 @@ namespace XamarinTutorial.Helpers
                 return;
             }
 
-            if (options == Languages.About)
+            if (options == Languages.About && this.GetType().Name != "AboutPage")
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Menu, Languages.About, Languages.Accept);
+                await App.Navigator.PushAsync(new AboutPage());
                 return;
             }
 
