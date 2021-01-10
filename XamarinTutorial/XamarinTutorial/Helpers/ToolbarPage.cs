@@ -52,6 +52,11 @@ namespace XamarinTutorial.Helpers
 
             if (options == Languages.About && this.GetType().Name != "AboutPage")
             {
+                if(this.GetType().Name == "LoginPage" || this.GetType().Name == "RegisterPage")
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new AboutPage());
+                    return;
+                }
                 await App.Navigator.PushAsync(new AboutPage());
                 return;
             }
