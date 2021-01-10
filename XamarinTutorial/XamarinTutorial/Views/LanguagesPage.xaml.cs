@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LanguagesPage : ContentPage
+    public partial class LanguagesPage : ToolbarPage
     {
         public LanguagesPage()
         {

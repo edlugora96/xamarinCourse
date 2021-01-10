@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<i18n:ToolbarPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTutorial.Views.RegisterPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              xmlns:i18n="clr-namespace:XamarinTutorial.Helpers" 
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="{i18n:Translate RegisterTitle}">
-    <ContentPage.Content>
+    <i18n:ToolbarPage.Content>
         <AbsoluteLayout BindingContext="{Binding Register}">
             <ScrollView 
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -140,5 +140,5 @@
                     IsRunning="{Binding IsRunning, Mode=TwoWay}">
             </ActivityIndicator>
         </AbsoluteLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </i18n:ToolbarPage.Content>
+</i18n:ToolbarPage>

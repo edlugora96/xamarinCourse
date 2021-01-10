@@ -366,4 +366,13 @@
   <data name="Translations" xml:space="preserve">
     <value>Traduções</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="RateApp" xml:space="preserve">
+    <value>Avaliar aplicativo</value>
+  </data>
+  <data name="ShareApp" xml:space="preserve">
+    <value>Compartilhe o aplicativo</value>
+  </data>
 </root>

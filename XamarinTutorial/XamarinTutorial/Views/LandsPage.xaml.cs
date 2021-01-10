@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LandsPage : ContentPage
+    public partial class LandsPage : ToolbarPage
     {
         public LandsPage()
         {

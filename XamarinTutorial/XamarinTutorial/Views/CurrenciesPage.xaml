@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<i18n:ToolbarPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTutorial.Views.CurrenciesPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              IconImageSource="ic_monetization_on"
              xmlns:i18n="clr-namespace:XamarinTutorial.Helpers"
              Title="{i18n:Translate Currencies}">
-    <ContentPage.Content>
+    <i18n:ToolbarPage.Content>
         <StackLayout
             BindingContext="{Binding Land}"
             Padding="5">
@@ -47,5 +47,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </i18n:ToolbarPage.Content>
+</i18n:ToolbarPage>

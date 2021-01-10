@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CurrenciesPage : ContentPage
+    public partial class CurrenciesPage : ToolbarPage
     {
         public CurrenciesPage()
         {

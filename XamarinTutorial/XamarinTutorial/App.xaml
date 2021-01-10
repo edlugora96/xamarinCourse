@@ -9,6 +9,8 @@
 
             <x:String x:Key="APILands">https://restcountries.eu</x:String>
             <x:String x:Key="APISecurity">https://www.appcurso.corpotecguayana.com/lands/webservice/webservice.php</x:String>
+            <x:String x:Key="ShareLink">https://play.google.com/store</x:String>
+            <x:String x:Key="RateLink">https://play.google.com/store/apps/details?id=com.android.chrome</x:String>
         </ResourceDictionary>
 
     </Application.Resources>

@@ -372,4 +372,13 @@
   <data name="string123" xml:space="preserve">
     <value>empty</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="RateApp" xml:space="preserve">
+    <value>Rate app</value>
+  </data>
+  <data name="ShareApp" xml:space="preserve">
+    <value>Share app</value>
+  </data>
 </root>

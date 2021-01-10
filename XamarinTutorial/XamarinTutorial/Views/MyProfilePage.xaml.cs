@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinTutorial.Helpers;
 
 namespace XamarinTutorial.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyProfilePage : ContentPage
+    public partial class MyProfilePage : ToolbarPage
     {
         public MyProfilePage()
         {

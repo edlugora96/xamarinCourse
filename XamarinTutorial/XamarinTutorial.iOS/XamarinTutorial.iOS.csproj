@@ -179,4 +179,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\no_image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_more_vert.png" />
+  </ItemGroup>
 </Project>

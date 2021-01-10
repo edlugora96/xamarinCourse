@@ -426,5 +426,19 @@ namespace XamarinTutorial.Helpers
         {
             get { return Resource.ErrorChangingPassword; }
         }
+        public static string ShareApp
+        {
+            get { return Resource.ShareApp; }
+        }
+
+        public static string RateApp
+        {
+            get { return Resource.RateApp; }
+        }
+
+        public static string About
+        {
+            get { return Resource.About; }
+        }
     }
 }

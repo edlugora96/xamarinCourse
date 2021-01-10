@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<i18n:ToolbarPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTutorial.Views.LoginPage"
              xmlns:i18n="clr-namespace:XamarinTutorial.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate Login}">
-    <ContentPage.Content>
+    <i18n:ToolbarPage.Content>
         <AbsoluteLayout BindingContext="{Binding Login}">
             <ScrollView
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -105,5 +105,5 @@
                     AbsoluteLayout.LayoutFlags="PositionProportional"
                     IsRunning="{Binding IsRunnig, Mode=TwoWay}" />
         </AbsoluteLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </i18n:ToolbarPage.Content>
+</i18n:ToolbarPage>
