@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using System;
 
 namespace XamarinTutorial.Helpers
 {
@@ -37,7 +38,14 @@ namespace XamarinTutorial.Helpers
 
             if (options == Languages.RateApp)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Menu, Languages.RateApp, Languages.Accept);
+                try
+                {
+                    await Browser.OpenAsync(rateLink, BrowserLaunchMode.SystemPreferred);
+                }
+                catch
+                {
+                    await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.SomethingWrong, Languages.Accept);
+                }
                 return;
             }
 
